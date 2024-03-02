@@ -1,0 +1,29 @@
+<label for="msg">Message:</label>
+<input [(ngModel)]="message" id="msg" />
+<br />
+<button (click)="sendMessage()">Send</button>
+<br />
+
+
+<input (change)="sendFile($event)" type="file" />
+
+
+<hr />
+<div>
+
+    <ul>
+        <li *ngFor=" let msg of Messages">
+
+            <span *ngIf="msg.IsText">
+                <b>{{msg.UserName}} : </b><i>{{msg.Message}}</i>
+            </span>
+
+            <span *ngIf="!msg.IsText">
+                <b>{{msg.UserName}} : </b><img width="300" [src]="msg.Message" />
+            </span>
+        </li>
+    </ul>
+
+
+
+</div>
